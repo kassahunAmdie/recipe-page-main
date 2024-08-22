@@ -39,8 +39,9 @@
 }
 
 html, body {
-  height: 100%;
+  background-color: var(--neutral-eggshell);
 }
+
 
 p, li, table {
   font-family: 'Outfit', sans-serif;
@@ -56,14 +57,21 @@ img {
   width: 100%;
   max-width: 656px;
   height: auto;
+  margin: 0 auto;
 }
 
 main {
-  max-width: 736px;
   min-height: 100vh;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
+}
+
+.recipe_card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-white);
+  max-width: 736px;
 }
 
 .recipe {
@@ -75,6 +83,7 @@ main {
 }
 
 ul, ol {
+  margin-top: 24px;
   margin-left: 8px;
   padding-left: 16px;
 }
@@ -83,6 +92,27 @@ ul, ol {
 li {
   padding-left: 16px;
   margin-top: 8px;
+}
+
+ol li::marker {
+  color: var(--primary-dark-raspberry);
+  font-weight: 600;
+}
+
+ul li {
+  position: relative;
+  list-style: none;
+}
+
+ul li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary-dark-raspberry);
+  position: absolute;
+  top: 43%;
+  left: -20px;
 }
 
 span {
@@ -108,20 +138,23 @@ h2 {
 }
 
 h3 {
-  font-style: 'Outfit', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
   color: var(--primary-dark-raspberry);
   line-height: 1;
   margin-bottom: 16px;
 }
 
 hr {
-  size: 1px;
   color: var(--neutral-white-coffee);
+  border-top: 0;
 }
 
 .recipe__preptime {
   background-color: var(--neutral-rose-white);
   padding: 24px;
+  border-radius: 12px;
 }
 
 .recipe__nutrition {
@@ -132,16 +165,25 @@ hr {
 
 table {
   border-collapse: collapse;
-  padding-left: 32px;
-  /* border-spacing: 16px 12px; */
 }
 
-table tr {
+tr {
   border-bottom: 1px solid var(--neutral-white-coffee);
 }
 
+tr:last-child {
+  border-bottom: none;
+}
+
+td:first-child {
+  padding: 12px 0 12px 32px;
+}
+
+
 td:nth-child(2) {
   color: var(--primary-nutmeg);
+  font-weight: 600;
+  padding: 12px 32px 12px 0;
 }
 
 .attribution {
@@ -150,4 +192,28 @@ td:nth-child(2) {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* Desktop and tablet */
+@media screen and (min-width : 630px) {
+
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 100px 0;
+  }
+
+  .recipe_card {
+    padding: 40px;
+    border-radius: 24px;
+  }
+
+  .recipe {
+    padding: 40px 0 0 0;
+  }
+
+  img {
+    border-radius: 12px;
+  }
 }
