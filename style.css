@@ -176,14 +176,14 @@ tr:last-child {
 }
 
 td:first-child {
-  padding: 12px 0 12px 32px;
+  padding: 8px 0 8px 32px;
 }
 
 
 td:nth-child(2) {
   color: var(--primary-nutmeg);
   font-weight: 600;
-  padding: 12px 32px 12px 0;
+  padding: 8px 32px 8px 0;
 }
 
 .attribution {
